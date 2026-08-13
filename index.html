@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Raj Social Panel - SMM Services</title>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="main-wrapper">
+
+        <!-- Top Header Navigation -->
+        <header class="app-header">
+            <div class="logo-box">
+                <i class="fa-solid fa-bolt logo-icon"></i>
+                <span class="logo-text">Raj Social Panel</span>
+            </div>
+            <div class="header-actions">
+                <a href="#orders" class="header-btn" id="navOrdersBtn">
+                    <i class="fa-solid fa-list-check"></i> Orders
+                </a>
+                <a href="#login" class="header-btn primary-btn" id="navLoginBtn">
+                    <i class="fa-solid fa-user"></i> Login
+                </a>
+            </div>
+        </header>
+
+        <!-- Hero / Main Banner Section -->
+        <section class="hero-banner">
+            <div class="hero-content">
+                <div class="hero-icon-wrap" id="heroLogoIcon">
+                    <i class="fa-brands fa-instagram"></i>
+                </div>
+                <h1 id="heroTitle" class="hero-title">Instagram Boost</h1>
+                <p class="hero-subtitle">High Quality • Fast Delivery • Non-Drop Services</p>
+            </div>
+        </section>
+
+        <!-- PWA Install Container -->
+        <div id="installContainer" style="display: none;">
+            <button id="installBtn" class="install-app-btn">
+                <i class="fa-solid fa-download"></i> Install Raj Social Panel App
+            </button>
+        </div>
+
+        <!-- Platform Switcher Grid (2x2 Layout) -->
+        <div class="platform-switch-container">
+            <button class="platform-btn active" id="btnInsta" onclick="switchPlatform('instagram')">
+                <i class="fa-brands fa-instagram"></i>
+                <span>Instagram</span>
+            </button>
+            <button class="platform-btn" id="btnFb" onclick="switchPlatform('facebook')">
+                <i class="fa-brands fa-facebook"></i>
+                <span>Facebook</span>
+            </button>
+            <button class="platform-btn" id="btnYt" onclick="switchPlatform('youtube')">
+                <i class="fa-brands fa-youtube"></i>
+                <span>YouTube</span>
+            </button>
+            <button class="platform-btn" id="btnTt" onclick="switchPlatform('tiktok')">
+                <i class="fa-brands fa-tiktok"></i>
+                <span>TikTok</span>
+            </button>
+        </div>
+
+        <!-- Dynamic Service Category Tabs -->
+        <div class="category-tabs-wrapper">
+            <div class="category-tabs" id="categoryTabs">
+                <!-- Categories rendered dynamically via JS -->
+            </div>
+        </div>
+
+        <!-- Package Listing Section -->
+        <section class="package-section">
+            <div id="packageList" class="package-grid">
+                <!-- Packages rendered dynamically via JS -->
+            </div>
+        </section>
+
+        <!-- Checkout Page / Overlay View -->
+        <div id="checkoutPage" class="checkout-overlay hidden">
+            <div class="checkout-card">
+                <div class="checkout-header">
+                    <button class="close-btn" onclick="closeCheckout()"><i class="fa-solid fa-xmark"></i></button>
+                    <div class="checkout-title-box">
+                        <span class="checkout-platform-icon" id="checkoutPlatformIcon"><i class="fa-brands fa-instagram"></i></span>
+                        <h2 id="checkoutServiceTitle">Instagram Followers</h2>
+                    </div>
+                </div>
+
+                <div class="checkout-body">
+                    <!-- Package Info Banner -->
+                    <div class="card-box pkg-summary-box">
+                        <div class="pkg-summary-info">
+                            <span class="pkg-badge-tag" id="checkoutBadge">Popular</span>
+                            <h3 id="checkoutPkgBadgeName">1K Followers</h3>
+                            <span class="units-text" id="checkoutUnitsText">1,000 Package</span>
+                        </div>
+                        <div class="pkg-price-display">
+                            <span class="price-label">Price</span>
+                            <span class="price-val">₹<span id="checkoutPriceText">0.00</span></span>
+                        </div>
+                    </div>
+
+                    <!-- Link Input Field -->
+                    <div class="input-box">
+                        <label id="checkoutLinkLabel" for="checkoutLinkInput">Profile Link (Account Must be Public)</label>
+                        <input type="text" id="checkoutLinkInput" placeholder="https://instagram.com/your_username">
+                    </div>
+
+                    <!-- Payment Mode Tabs (UPI / Binance) -->
+                    <div class="payment-tabs">
+                        <button class="payment-tab active" id="btnTabUpi" onclick="switchCheckoutPayment('upi')">
+                            <i class="fa-solid fa-qrcode"></i> UPI / QR Code
+                        </button>
+                        <button class="payment-tab" id="btnTabBinance" onclick="switchCheckoutPayment('binance')">
+                            <i class="fa-brands fa-bitcoin"></i> Crypto / Binance Pay
+                        </button>
+                    </div>
+
+                    <!-- UPI View -->
+                    <div id="checkoutUpiView" class="payment-view">
+                        <h3 id="scanToPayHeading">SCAN TO PAY VIA UPI</h3>
+                        <div class="qr-code-box">
+                            <img id="checkoutQrImg" src="" alt="UPI QR Code">
+                        </div>
+                        <div class="upi-app-btn-grid">
+                            <button class="upi-app-btn gpay" onclick="triggerUpiPay('gpay')"><i class="fa-brands fa-google-pay"></i> GPay</button>
+                            <button class="upi-app-btn phonepe" onclick="triggerUpiPay('phonepe')"><i class="fa-solid fa-mobile-screen-button"></i> PhonePe</button>
+                            <button class="upi-app-btn paytm" onclick="triggerUpiPay('paytm')"><i class="fa-solid fa-wallet"></i> Paytm</button>
+                        </div>
+                    </div>
+
+                    <!-- Binance / Crypto View -->
+                    <div id="checkoutBinanceView" class="payment-view hidden">
+                        <div class="crypto-pay-box">
+                            <p>Send Equivalent USDT Amount:</p>
+                            <h2 id="checkoutUsdtAmount">$0.00 USDT</h2>
+                            <span class="crypto-address">Pay ID: 882910392</span>
+                        </div>
+                    </div>
+
+                    <!-- Transaction ID / UTR Input -->
+                    <div class="input-box" style="margin-top: 6px;">
+                        <label for="checkoutTxnId">Transaction ID / UTR Number</label>
+                        <input type="text" id="checkoutTxnId" placeholder="Enter 12-Digit UTR / Txn ID">
+                    </div>
+
+                    <div class="warning-msg">
+                        ⚠️ Enter correct Txn ID after payment to avoid order delays.
+                    </div>
+
+                    <!-- Submit Actions -->
+                    <button class="submit-btn wa-submit" onclick="submitOrderToWhatsApp()">
+                        <i class="fa-brands fa-whatsapp"></i> Submit Order via WhatsApp
+                    </button>
+                    <button class="submit-btn wallet-submit" onclick="submitOrderWithWallet()" style="margin-top: 6px; background: #059669;">
+                        <i class="fa-solid fa-wallet"></i> Pay via Wallet Balance
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Custom Script -->
+    <script src="script.js"></script>
+</body>
+</html>
