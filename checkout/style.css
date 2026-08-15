@@ -1,0 +1,199 @@
+/* Checkout Specific Styling */
+.checkout-page-overlay {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+.checkout-content {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.checkout-nav {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.back-btn {
+  background: #f1f5f9;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  color: #334155;
+}
+
+.checkout-heading-text {
+  font-size: 18px;
+  font-weight: 700;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.premium-service-card {
+  background: #f8fafc;
+  border-radius: 12px;
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid #e2e8f0;
+}
+
+.card-top-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.platform-badge-icon {
+  font-size: 24px;
+  color: #a855f7;
+}
+
+.badge-row {
+  display: flex;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.pkg-name-badge, .popular-badge {
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+.pkg-name-badge { background: #e0e7ff; color: #4338ca; }
+.popular-badge { background: #fef3c7; color: #b45309; }
+
+.units-text { font-size: 13px; color: #64748b; margin-top: 8px; }
+.price-text { font-size: 22px; font-weight: 800; color: #0f172a; margin-top: 4px; }
+
+.checkout-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 15px;
+}
+
+.checkout-input-group label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #475569;
+}
+
+.checkout-input-group input[type="text"] {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  font-size: 14px;
+  outline: none;
+}
+
+.checkout-order-summary {
+  background: #f1f5f9;
+  border-radius: 12px;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+.summary-title { font-weight: 700; font-size: 14px; margin-bottom: 10px; }
+.summary-row { display: flex; justify-content: space-between; font-size: 13px; color: #475569; }
+.summary-divider { height: 1px; background: #cbd5e1; margin: 10px 0; }
+.pay-row { font-weight: 700; color: #0f172a; font-size: 15px; }
+.pay-amount { color: #16a34a; font-weight: 800; }
+
+.pay-toggle-tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.pay-tab {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #cbd5e1;
+  background: #ffffff;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.pay-tab.active {
+  background: #0f172a;
+  color: #ffffff;
+  border-color: #0f172a;
+}
+
+.payment-view-box {
+  border: 1px dashed #cbd5e1;
+  padding: 15px;
+  border-radius: 12px;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.upi-app-btn-grid {
+  display: flex;
+  justify-content: space-between;
+  gap: 2px;
+  margin-top: 4px;
+  width: 100%;
+}
+
+.upi-app-card-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(226, 232, 240, 0.6);
+  border-radius: 12px;
+  padding: 8px 4px;
+  text-decoration: none;
+  color: #1e293b;
+  font-weight: 700;
+  font-size: 12px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+  pointer-events: none;
+  cursor: default;
+}
+
+.notice-yellow-box {
+  background: #fef9c3;
+  border: 1px solid #fde047;
+  color: #854d0e;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 12px;
+  margin-bottom: 15px;
+}
+
+.whatsapp-submit-btn {
+  width: 100%;
+  background: #25d366;
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.margin-top-15 { margin-top: 15px; }
+.hidden { display: none !important; }
