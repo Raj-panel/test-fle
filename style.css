@@ -1,297 +1,146 @@
-/* =========================================================
-   GLOBAL BASE STYLES
-   ========================================================= */
+/* Core Styling & Layout */
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    -webkit-tap-highlight-color: transparent;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
     background-color: #0f172a;
     color: #f8fafc;
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    min-height: 100vh;
-    padding: 0;
-    margin: 0;
-}
-
-.main-wrapper {
-    width: 100%;
-    max-width: 440px;
-    background: #1e293b;
-    min-height: 100vh;
-    position: relative;
-    padding-bottom: 30px;
-    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
-}
-
-/* =========================================================
-   HEADER STYLES
-   ========================================================= */
-.app-header {
-    display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
-    padding: 12px 16px;
-    background: rgba(15, 23, 42, 0.8);
-    backdrop-filter: blur(12px);
+    min-height: 100vh;
+}
+
+/* Platform Header */
+.platform-header {
+    display: flex;
+    gap: 8px;
+    padding: 12px;
+    background: #1e293b;
+    width: 100%;
+    justify-content: center;
     position: sticky;
     top: 0;
     z-index: 100;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.logo-box {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.logo-icon {
-    color: #a855f7;
-    font-size: 18px;
-}
-
-.logo-text {
-    font-size: 16px;
-    font-weight: 800;
-    background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.header-actions {
-    display: flex;
-    gap: 8px;
-}
-
-.header-btn {
-    padding: 6px 12px;
-    border-radius: 8px;
-    font-size: 12px;
+.platform-header button {
+    background: transparent;
+    border: 1px solid #334155;
+    color: #94a3b8;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
     font-weight: 600;
-    text-decoration: none;
-    color: #94a3b8;
-    background: rgba(255, 255, 255, 0.05);
-    transition: all 0.2s ease;
-    display: flex;
-    align-items: center;
-    gap: 5px;
+    transition: 0.3s ease;
 }
 
-.header-btn.primary-btn {
-    background: #a855f7;
-    color: #ffffff;
-}
-
-/* =========================================================
-   HERO / MAIN BANNER (Adjusted Size for 2x2 Grid Space)
-   ========================================================= */
-.hero-banner {
-    margin: 12px 16px 10px 16px;
-    padding: 14px 16px;
-    border-radius: 16px;
-    background: linear-gradient(135deg, rgba(168, 85, 247, 0.15) 0%, rgba(236, 72, 153, 0.15) 100%);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-    min-height: 120px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.hero-icon-wrap {
-    width: 40px;
-    height: 40px;
-    border-radius: 10px;
+.platform-header button.active, .platform-header button:hover {
     background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
     color: #fff;
-    margin-bottom: 6px;
+    border-color: transparent;
 }
 
-.hero-title {
-    font-size: 18px;
-    font-weight: 800;
-    color: #f8fafc;
-    margin-bottom: 2px;
-}
-
-.hero-subtitle {
-    font-size: 11px;
-    color: #94a3b8;
-}
-
-/* =========================================================
-   PWA INSTALL BUTTON
-   ========================================================= */
-#installContainer {
-    padding: 0 16px;
-    margin-bottom: 10px;
-}
-
-.install-app-btn {
-    width: 100%;
-    padding: 10px;
-    border-radius: 10px;
-    border: none;
-    background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
-    color: #fff;
-    font-weight: 700;
-    font-size: 13px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-}
-
-/* =========================================================
-   PLATFORM SWITCHER (2x2 Grid)
-   ========================================================= */
-.platform-switch-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    padding: 0 16px;
-    margin-bottom: 16px;
-}
-
-.platform-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    padding: 12px;
+/* Layout Locks & Custom Styling */
+.hero-banner, .hero-card, .instagram-boost-card {
+    height: auto !important;
+    min-height: 160px !important;
+    max-height: 180px !important;
+    padding: 12px 14px !important;
+    box-sizing: border-box !important;
+    overflow: visible !important;
+    background: linear-gradient(135deg, rgba(168, 85, 247, 0.1) 0%, rgba(236, 72, 153, 0.1) 100%);
+    border: 1px solid rgba(168, 85, 247, 0.2);
     border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    background: rgba(255, 255, 255, 0.03);
+    text-align: center;
+    margin: 15px 0;
+    width: 90%;
+    max-width: 500px;
+}
+
+.hero-banner .hero-title {
+    margin-top: 0px !important;
+    margin-bottom: 2px !important;
+    font-size: 18px !important;
+    color: #a855f7;
+}
+
+.hero-banner p {
+    margin-bottom: 8px !important;
+    font-size: 11px !important;
     color: #94a3b8;
-    font-size: 14px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: all 0.2s ease;
 }
 
-.platform-btn i {
-    font-size: 18px;
+#installContainer {
+    margin-top: 50px !important;
+    margin-bottom: 4px !important;
 }
 
-.platform-btn.active {
-    background: rgba(168, 85, 247, 0.15);
-    border-color: #a855f7;
-    color: #f8fafc;
-}
-
-/* =========================================================
-   CATEGORY TABS
-   ========================================================= */
-.category-tabs-wrapper {
-    padding: 0 16px;
-    margin-bottom: 16px;
-}
-
+/* Categories Scroll */
 .category-tabs {
     display: flex;
     gap: 8px;
     overflow-x: auto;
-    padding-bottom: 4px;
-    scrollbar-width: none;
-}
-
-.category-tabs::-webkit-scrollbar {
-    display: none;
+    width: 90%;
+    max-width: 500px;
+    padding-bottom: 10px;
 }
 
 .cat-tab {
-    padding: 8px 14px;
-    border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    background: rgba(255, 255, 255, 0.03);
-    color: #94a3b8;
-    font-size: 12px;
-    font-weight: 600;
+    background: #1e293b;
+    border: 1px solid #334155;
+    color: #cbd5e1;
+    padding: 6px 12px;
+    border-radius: 8px;
     white-space: nowrap;
     cursor: pointer;
+    font-size: 12px;
 }
 
 .cat-tab.active {
     background: #a855f7;
-    color: #ffffff;
-    border-color: #a855f7;
+    color: #fff;
 }
 
-/* =========================================================
-   PACKAGES GRID & CARDS
-   ========================================================= */
-.package-section {
-    padding: 0 16px;
-}
-
-.package-grid {
+/* Package List */
+.package-list {
+    width: 90%;
+    max-width: 500px;
     display: flex;
     flex-direction: column;
     gap: 10px;
+    margin-top: 10px;
 }
 
 .pkg-card {
+    background: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 10px;
+    padding: 12px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 12px 14px;
-    border-radius: 12px;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.06);
     cursor: pointer;
-    transition: all 0.2s ease;
 }
 
 .pkg-card:hover {
-    border-color: rgba(168, 85, 247, 0.4);
-    background: rgba(255, 255, 255, 0.05);
+    border-color: #a855f7;
 }
 
 .pkg-left {
     display: flex;
     align-items: center;
-    gap: 12px;
-}
-
-.pkg-icon {
-    width: 38px;
-    height: 38px;
-    border-radius: 10px;
-    background: rgba(168, 85, 247, 0.1);
-    color: #a855f7;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 16px;
-}
-
-.pkg-info {
-    display: flex;
-    flex-direction: column;
+    gap: 10px;
 }
 
 .pkg-title {
-    font-size: 13px;
     font-weight: 700;
-    color: #f8fafc;
-    display: flex;
-    align-items: center;
-    gap: 6px;
+    font-size: 13px;
+    color: #f1f5f9;
 }
 
 .pkg-sub {
@@ -299,251 +148,22 @@ body {
     color: #64748b;
 }
 
-.pkg-badge {
-    padding: 2px 6px;
-    border-radius: 4px;
-    font-size: 9px;
-    font-weight: 800;
-}
-
-.badge-demo { background: rgba(59, 130, 246, 0.2); color: #60a5fa; }
-.badge-popular { background: rgba(168, 85, 247, 0.2); color: #c084fc; }
-.badge-best { background: rgba(236, 72, 153, 0.2); color: #f472b6; }
-.badge-super { background: rgba(34, 197, 94, 0.2); color: #4ade80; }
-
 .pkg-price-btn {
-    background: #a855f7;
+    background: #22c55e;
     color: #fff;
     padding: 6px 12px;
-    border-radius: 8px;
-    font-size: 13px;
-    font-weight: 700;
+    border-radius: 6px;
+    font-weight: 800;
+    font-size: 12px;
 }
 
 .custom-card {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    border-radius: 12px;
+    background: #1e293b;
+    border: 1px solid #a855f7;
+    border-radius: 10px;
     padding: 14px;
 }
 
-.input-box {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-}
-
-.input-box label {
-    font-size: 11px;
-    color: #94a3b8;
-    font-weight: 600;
-}
-
-.input-box input {
-    width: 100%;
-    padding: 10px 12px;
-    border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    background: rgba(15, 23, 42, 0.6);
-    color: #fff;
-    font-size: 12px;
-    outline: none;
-}
-
-/* =========================================================
-   CHECKOUT OVERLAY MODAL
-   ========================================================= */
-.checkout-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(15, 23, 42, 0.85);
-    backdrop-filter: blur(8px);
-    z-index: 1000;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-}
-
-.checkout-overlay.hidden {
-    display: none !important;
-}
-
-.checkout-card {
-    width: 100%;
-    max-width: 440px;
-    background: #1e293b;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 16px;
-    max-height: 90vh;
-    overflow-y: auto;
-}
-
-.checkout-header {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 12px;
-    position: relative;
-}
-
-.close-btn {
-    background: rgba(255, 255, 255, 0.05);
-    border: none;
-    color: #94a3b8;
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    cursor: pointer;
-}
-
-.checkout-title-box {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.checkout-platform-icon {
-    font-size: 18px;
-    color: #a855f7;
-}
-
-.checkout-title-box h2 {
-    font-size: 15px;
-    font-weight: 700;
-    color: #fff;
-}
-
-.checkout-body {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.card-box {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    border-radius: 12px;
-    padding: 12px;
-}
-
-.pkg-summary-box {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.pkg-summary-info h3 {
-    font-size: 14px;
-    color: #fff;
-}
-
-.units-text {
-    font-size: 10px;
-    color: #64748b;
-}
-
-.pkg-price-display {
-    text-align: right;
-}
-
-.price-label {
-    display: block;
-    font-size: 9px;
-    color: #94a3b8;
-}
-
-.price-val {
-    font-size: 16px;
-    font-weight: 800;
-    color: #22c55e;
-}
-
-.payment-tabs {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8px;
-}
-
-.payment-tab {
-    padding: 8px;
-    border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    background: rgba(255, 255, 255, 0.03);
-    color: #94a3b8;
-    font-size: 11px;
-    font-weight: 700;
-    cursor: pointer;
-}
-
-.payment-tab.active {
-    background: rgba(168, 85, 247, 0.15);
-    border-color: #a855f7;
-    color: #fff;
-}
-
-.payment-view {
-    text-align: center;
-    padding: 8px 0;
-}
-
-.payment-view.hidden {
-    display: none;
-}
-
-.qr-code-box img {
-    width: 110px;
-    height: 110px;
-    border-radius: 10px;
-    background: #fff;
-    padding: 4px;
-}
-
-.upi-app-btn-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 6px;
-    margin-top: 8px;
-}
-
-.upi-app-btn {
-    padding: 6px;
-    border-radius: 6px;
-    border: none;
-    font-weight: 700;
-    font-size: 11px;
-    cursor: pointer;
-    color: #fff;
-}
-
-.upi-app-btn.gpay { background: #4285f4; }
-.upi-app-btn.phonepe { background: #5f259f; }
-.upi-app-btn.paytm { background: #00baf2; }
-
-.submit-btn {
-    width: 100%;
-    padding: 10px;
-    border-radius: 10px;
-    border: none;
-    font-weight: 800;
-    font-size: 13px;
-    cursor: pointer;
-}
-
-.submit-btn.wa-submit {
-    background: #25d366;
-    color: #fff;
-}
-
-.warning-msg {
-    font-size: 10px;
-    color: #eab308;
-    background: rgba(234, 179, 8, 0.1);
-    padding: 6px;
-    border-radius: 6px;
-    text-align: center;
-}
+.badge-demo { background: #3b82f6; color: #fff; padding: 2px 6px; border-radius: 4px; font-size: 9px; }
+.badge-popular { background: #eab308; color: #000; padding: 2px 6px; border-radius: 4px; font-size: 9px; }
+.badge-best { background: #ef4444; color: #fff; padding: 2px 6px; border-radius: 4px; font-size: 9px; }
