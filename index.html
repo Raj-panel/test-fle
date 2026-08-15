@@ -1,65 +1,168 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Social Media Boost Panel</title>
-    <!-- FontAwesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+<meta charset="utf-8"/>
+<!-- Canonical Link -->
+<link rel="canonical" href="https://rajsmmpanel.in/"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Raj SMM Panel – Best India Cheapest SMM Panel for Instagram, Facebook &amp; YouTube</title>
+<meta content="Raj SMM Panel offers affordable social media marketing services for Instagram, Facebook, YouTube and more. Get Followers, Likes, Views, Comments and other SMM services at the best prices." name="description"/>
+
+<!-- Google Font -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;0,700;1,800&display=swap" rel="stylesheet"/>
+
+<!-- PWA / Web App Manifest & Theme -->
+<link href="manifest.json" rel="manifest"/>
+<meta content="#0f172a" name="theme-color"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
+<meta content="SMM Panel" name="apple-mobile-web-app-title"/>
+<link href="icon-192.png" rel="apple-touch-icon"/>
+<link href="style.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+
+<!-- Open Graph Meta Tags -->
+<meta content="website" property="og:type"/>
+<meta content="https://rajsmmpanel.in/" property="og:url"/>
+<meta content="Raj Social Panel - Premium Social Boosting Services" property="og:title"/>
+<meta content="Get instant Followers, Likes, Views for Instagram and Facebook at lowest prices!" property="og:description"/>
+<meta content="https://rajsmmpanel.in/banner-image.png" property="og:image"/>
+<meta content="https://rajsmmpanel.in/banner-image.png" property="og:image:secure_url"/>
+<meta content="image/png" property="og:image:type"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+
+<!-- Twitter Card Meta Tags -->
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="https://rajsmmpanel.in/" name="twitter:url"/>
+<meta content="Raj Social Panel - Premium Social Boosting Services" name="twitter:title"/>
+<meta content="Instant Delivery &amp; Premium Quality Social Media Services." name="twitter:description"/>
+<meta content="https://rajsmmpanel.in/banner-image.png" name="twitter:image"/>
 </head>
-<body>
+<body data-platform="instagram">
 
-    <!-- Platform Selector Header -->
-    <header class="platform-header">
-        <button id="btnInsta" onclick="switchPlatform('instagram')" class="active">
-            <i class="fa-brands fa-instagram"></i> Instagram
-        </button>
-        <button id="btnFb" onclick="switchPlatform('facebook')">
-            <i class="fa-brands fa-facebook"></i> Facebook
-        </button>
-        <button id="btnYt" onclick="switchPlatform('youtube')">
-            <i class="fa-brands fa-youtube"></i> YouTube
-        </button>
-        <button id="btnTt" onclick="switchPlatform('tiktok')">
-            <i class="fa-brands fa-tiktok"></i> TikTok
-        </button>
-    </header>
+<!-- Left Sidebar Navigation -->
+<div class="sidebar-overlay" id="sidebarOverlay" onclick="closeSidebar(true)"></div>
+<div class="left-sidebar" id="leftSidebar">
+  <div class="sidebar-header">
+    <div class="sidebar-title">𝐑𝐀𝐉-𝐒𝐌𝐌-𝐏𝐀𝐍𝐄𝐋</div>
+    <button class="sidebar-close-btn" onclick="closeSidebar(true)" aria-label="Close Sidebar"><i class="fa-solid fa-xmark"></i></button>
+  </div>
+  
+  <ul class="sidebar-menu">
+    <li id="authMenuItem">
+      <a href="/login/">🔐 Login / Create Account</a>
+    </li>
+    <li><a href="/">🛒 New Order</a></li>
+    <li><a href="/orders/">📦 My Orders</a></li>
+    <li id="addFundsMenuItem" class="hidden-item"></li>
+    <li><a href="/pages/privacy-policy.html">🔒 Privacy Policy</a></li>
+    <li><a href="/pages/refund-policy.html">💸 Refund Policy</a></li>
+    <li><a href="/pages/terms.html">📜 Terms &amp; Conditions</a></li>
+    <li><a href="/pages/contact.html">📞 Contact Us</a></li>
+    <li><a href="/pages/about.html">ℹ️ About Us</a></li>
+    <li><a href="/buy-smm-panel">🛒 Buy SMM Panel</a></li>
+  </ul>
 
-    <!-- Main Container -->
-    <main class="main-container">
+  <div class="sidebar-footer-media">
+    <a href="https://youtu.be/vsRlXbdNaoU?si=zFrOw3iIYW5GFF4c" target="_blank" rel="noopener noreferrer" class="watch-tutorials-btn">
+      <i class="fa-brands fa-youtube"></i> Watch Tutorials
+    </a>
+    <a href="https://youtu.be/vsRlXbdNaoU?si=zFrOw3iIYW5GFF4c" target="_blank" rel="noopener noreferrer" class="tutorial-banner-link">
+      <img src="thumbnail.png" alt="Watch Tutorial" class="tutorial-banner-img" />
+    </a>
+  </div>
+</div>
 
-        <!-- Dynamic Hero Banner -->
-        <div class="hero-banner" id="heroBanner">
-            <div class="hero-icon" id="heroLogoIcon">
-                <i class="fa-brands fa-instagram"></i>
-            </div>
-            <h2 id="heroTitle" class="hero-title">Instagram Boost</h2>
-            <p>Select your category and package to boost your reach today!</p>
-        </div>
+<div class="main-wrapper" id="mainHomeView">
+  
+  <!-- Hamburger Button -->
+  <button class="hamburger-btn" onclick="openSidebar()" aria-label="Open Navigation Menu">
+    <i class="fa-solid fa-bars"></i>
+  </button>
 
-        <!-- Category Scroll Tabs -->
-        <div class="category-tabs" id="categoryTabs">
-            <!-- Tabs injected dynamically via JS -->
-        </div>
+  <!-- Header -->
+  <div class="panel-heading">𝐑𝐀𝐉-𝐒𝐌𝐌-𝐏𝐀𝐍𝐄𝐋</div>
 
-        <!-- Package List Container -->
-        <div class="package-list" id="packageList">
-            <!-- Packages injected dynamically via JS -->
-        </div>
+  <!-- Support Buttons Header -->
+  <div class="hero-actions">
+    <a class="glass-btn btn-telegram" href="https://t.me/raj_smm_panel" target="_blank" rel="noopener noreferrer">
+      <i class="fa-brands fa-telegram"></i> Telegram Support
+    </a>
+    <a class="glass-btn btn-whatsapp" href="javascript:void(0);" onclick="openWhatsAppSupport()">
+      <i class="fa-brands fa-whatsapp"></i> WhatsApp Support
+    </a>
+  </div>
 
-        <!-- App Install Container (PWA Prompt) -->
-        <div id="installContainer" style="display: none;">
-            <button id="installBtn" class="install-btn">
-                📲 Install App for Faster Access
-            </button>
-        </div>
+  <!-- Platform Switcher -->
+  <div class="platform-card-wrapper">
+    <div class="platform-switch-container">
+      <button class="platform-btn active" id="btnInsta" onclick="handlePlatformClick('instagram', this)">
+        <i class="fa-brands fa-instagram"></i> Instagram
+      </button>
+      <button class="platform-btn" id="btnFb" onclick="handlePlatformClick('facebook', this)">
+        <i class="fa-brands fa-facebook"></i> Facebook
+      </button>
+      <button class="platform-btn" id="btnYt" onclick="handlePlatformClick('youtube', this)">
+        <i class="fa-brands fa-youtube"></i> YouTube
+      </button>
+      <button class="platform-btn" id="btnTt" onclick="handlePlatformClick('tiktok', this)">
+        <i class="fa-brands fa-tiktok"></i> TikTok
+      </button>
+    </div>
+  </div>
 
-    </main>
+  <!-- Hero Status Banner -->
+  <div class="hero-banner">
+    <div class="hero-top-row">
+      <div class="hero-logo-box" id="heroLogoIcon">
+        <i class="fa-brands fa-instagram"></i>
+      </div>
+      <span class="provider-badge">#1 Service Provider</span>
+    </div>
+    <h2 id="heroTitle">Instagram Boost</h2>
+    <p class="hero-sub">Real engagement delivered fast &amp; safely</p>
+    <div class="hero-stats-grid">
+      <div class="stat-card">
+        <span class="stat-icon"><i class="fa-solid fa-rocket"></i></span>
+        <span class="stat-num" id="totalOrders">10M</span>
+        <span class="stat-lbl">Orders Delivered</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-icon"><i class="fa-solid fa-headset"></i></span>
+        <span class="stat-num">24/7</span>
+        <span class="stat-lbl">Support</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-icon"><i class="fa-solid fa-shield-halved"></i></span>
+        <span class="stat-num">100%</span>
+        <span class="stat-lbl">Safe &amp; Refundable</span>
+      </div>
+    </div>
+  </div>
 
-    <!-- Checkout Modal Included -->
-    <!-- (Include your checkout modal elements here if single page app, or link checkout.html) -->
+  <!-- Scrollable Category Tabs -->
+  <div class="category-tabs-wrapper">
+    <div class="category-tabs" id="categoryTabs"></div>
+  </div>
 
-    <script src="script.js"></script>
+  <!-- Package List Section -->
+  <div class="package-list-container" id="packageList"></div>
+
+  <div class="footer-note">
+    ⚡ Fast Processing • 100% Refund Guarantee If Failed
+  </div>
+
+  <!-- Install App Button -->
+  <div id="installContainer" class="hidden-item">
+    <button class="install-btn" id="installBtn"><i class="fa-solid fa-download"></i> Install App</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+<script type="module" src="firebase-config.js"></script>
+<script type="module" src="auth-handler.js"></script>
 </body>
 </html>
