@@ -3,15 +3,14 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Checkout - Raj SMM Panel</title>
+<title>Checkout – Raj SMM Panel</title>
 
-<!-- Google Font & Icons -->
+<!-- Google Font -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;0,700;1,800&display=swap" rel="stylesheet"/>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
 
-<!-- Styles -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
 <link href="../style.css" rel="stylesheet"/>
 <link href="style.css" rel="stylesheet"/>
 </head>
@@ -21,7 +20,7 @@
   <div class="checkout-content">
     
     <div class="checkout-nav">
-      <button class="back-btn" onclick="closeCheckout()"><i class="fa-solid fa-arrow-left"></i> Back</button>
+      <button class="back-btn" id="checkoutBackBtn"><i class="fa-solid fa-arrow-left"></i> Back</button>
       <div class="checkout-heading-text">Checkout</div>
     </div>
 
@@ -63,39 +62,39 @@
     </div>
 
     <div class="pay-toggle-tabs">
-      <button class="pay-tab active" id="btnTabUpi" onclick="switchCheckoutPayment('upi')">
+      <button class="pay-tab active" id="btnTabUpi">
         <i class="fa-solid fa-qrcode"></i> UPI QR Pay
       </button>
-      <button class="pay-tab" id="btnTabBinance" onclick="switchCheckoutPayment('binance')">
+      <button class="pay-tab" id="btnTabBinance">
         <i class="fa-solid fa-wallet"></i> Binance Pay
       </button>
     </div>
 
     <div id="checkoutUpiView" class="payment-view-box">
-      <div class="scan-title upi-scan-title">
+      <div class="scan-title" style="font-weight: 800; color: var(--platform-primary, #a855f7); font-size: 16px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px;">
         SCAN TO PAY VIA UPI
       </div>
-      <div class="qr-wrapper qr-wrapper-center">
-        <img id="checkoutQrImg" src="" alt="UPI QR Code" class="qr-img-styled" />
+      <div class="qr-wrapper" style="text-align: center; margin-bottom: 2px;">
+        <img id="checkoutQrImg" src="" alt="UPI QR Code" style="display: block; margin: 0 auto; border-radius: 12px;" />
       </div>
-      <p class="qr-sub upi-qr-sub">
+      <p class="qr-sub" style="font-size: 10px; color: #64748b; margin-top: 2px; margin-bottom: 8px; text-align: center;">
         Scan or enter payment detail into any UPI App
       </p>
       
       <div class="upi-app-btn-grid">
         <div class="upi-app-card-btn">
-          <span class="paytm-text">Paytm</span>
+          <span style="color: #00baf2; font-weight: 900;">Paytm</span>
         </div>
         <div class="upi-app-card-btn">
-          <span class="gpay-g">G</span><span class="gpay-p">P</span><span class="gpay-a">a</span><span class="gpay-y">y</span>
+          <span style="color: #4285f4; font-weight: 800;">G</span><span style="color: #ea4335; font-weight: 800;">P</span><span style="color: #fbbc05; font-weight: 800;">a</span><span style="color: #34a853; font-weight: 800;">y</span>
         </div>
         <div class="upi-app-card-btn">
-          <i class="fa-solid fa-asterisk phonepe-icon"></i>
-          <span class="phonepe-text">PhonePe</span>
+          <i class="fa-solid fa-asterisk" style="color: #5f259f;"></i>
+          <span style="color: #5f259f; font-weight: 800;">PhonePe</span>
         </div>
         <div class="upi-app-card-btn">
-          <i class="fa-solid fa-qrcode other-upi-icon"></i>
-          <span class="other-upi-text">Other UPI</span>
+          <i class="fa-solid fa-qrcode" style="color: #6366f1;"></i>
+          <span style="color: #1e293b; font-weight: 700;">Other UPI</span>
         </div>
       </div>
     </div>
@@ -106,7 +105,7 @@
         <img src="../binance-qr.png" alt="Binance QR Code" />
       </div>
       <div class="binance-nick-box">
-        Binance Nickname: <strong class="binance-nick-text">Alex-Sahil786</strong>
+        Binance Nickname: <strong style="color: #facc15;">Alex-Sahil786</strong>
       </div>
       <div class="usdt-badge-box">
         <span id="checkoutUsdtAmount">$0.00 USDT</span>
@@ -122,7 +121,7 @@
       <strong>⚠️ After completing payment, enter the Transaction ID / UTR and Confirm your order.</strong>
     </div>
 
-    <button class="whatsapp-submit-btn" onclick="submitOrderToWhatsApp()">
+    <button class="whatsapp-submit-btn" id="btnConfirmOrder">
       <i class="fa-brands fa-whatsapp"></i> Confirm your order
     </button>
 
